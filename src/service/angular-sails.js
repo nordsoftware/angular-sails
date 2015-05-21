@@ -117,7 +117,7 @@
                     config.timeout.then(timeoutRequest);
                 }
 
-                socket['legacy_' + config.method.toLowerCase()](config.url, config.data, serverResponse);
+                socket['legacy_' + config.method.toLowerCase()](config.url, config.data, config, serverResponse);
 
                 function timeoutRequest(){
                     serverResponse(null);
@@ -159,7 +159,7 @@
             function promisify(methodName) {
                 socket['legacy_' + methodName] = socket[methodName];
 
-                socket[methodName] = function(url, data, config) {
+          socket[methodName] = function(url, data, config, cb) {
 
                     var chain = [serverRequest, undefined];
 

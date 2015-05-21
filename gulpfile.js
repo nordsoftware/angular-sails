@@ -46,4 +46,4 @@ gulp.task('watch', function () {
     return gulp.watch('src/**/*.js', ['build-js']);
 });
 
-gulp.task('default', ['build-js', 'watch']);
+gulp.task('default', ['dist-js', 'watch']);
